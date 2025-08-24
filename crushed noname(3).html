@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Crush ❤️</title>
+    <style>
+        body {
+            background: #111;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(43, 43, 43, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            max-width: 90%;
+            width: 350px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 1px solid #555;
+            background: #333;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .profile-pic-container {
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #ff6b6b;
+            animation: pulse 1.5s infinite;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .heart-btn {
+            padding: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(255, 107, 107, 0.5);
+            animation: pulse-heart 1.5s infinite;
+        }
+
+        .heart-icons span {
+            font-size: 2rem;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .heart-icons span:hover {
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes pulse-heart {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container" id="name-input">
+        <h2 class="title">Enter Your Name 🥰💐</h2>
+        <input type="text" id="name-box" placeholder="Enter your name">
+        <button id="start-btn">Start</button>
+    </div>
+
+    <div class="container" id="initial-page" style="display:none;">
+        <div class="profile-pic-container">
+            <img src="https://via.placeholder.com/150" alt="Profile" class="profile-pic">
+        </div>
+        <h2 id="greeting-text" class="greeting">Hiee, Cryshh 💐</h2>
+        <div class="message-box" id="initial-message">
+            <p>I Want to Ask You Something?</p>
+            <p>🥺</p>
+        </div>
+        <div class="button-box">
+            <button id="heart-btn" class="heart-btn">Touch the Heart!</button>
+        </div>
+    </div>
+
+    <div class="container" id="second-page" style="display:none;">
+        <div class="profile-pic-container">
+            <img src="https://via.placeholder.com/150" alt="Profile" class="profile-pic">
+        </div>
+        <h2 id="greeting-text-2" class="greeting">Hiee, Cryshh 💐</h2>
+        <div class="message-box" id="heart-message">
+            <p>Click these hearts!</p>
+            <div class="heart-icons">
+                <span class="heart-icon">❤️</span>
+                <span class="heart-icon">❤️</span>
+                <span class="heart-icon">❤️</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" id="final-page" style="display:none;">
+        <div class="profile-pic-container">
+            <img src="https://via.placeholder.com/150" alt="Profile" class="profile-pic">
+        </div>
+        <h2 id="greeting-text-3" class="greeting">Hiee, Cryshh 💐</h2>
+        <div class="message-box" id="final-message">
+            <p>It's just weird, because you attract my Heart a lot 🥰</p>
+            <br>
+            <p>It.. Yes, I'm in love with you 🥹</p>
+            <p>I mean nvm- 🚶‍♂️</p>
+            <p>💖😘🥺🏃‍♀️💃</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('start-btn').addEventListener('click', () => {
+            const nameInput = document.getElementById('name-box').value;
+            if (nameInput) {
+                document.getElementById('name-input').style.display = 'none';
+                document.getElementById('initial-page').style.display = 'block';
+                document.getElementById('greeting-text').innerHTML = `Hiee, ${nameInput} 💐`;
+                document.getElementById('greeting-text-2').innerHTML = `Hiee, ${nameInput} 💐`;
+                document.getElementById('greeting-text-3').innerHTML = `Hiee, ${nameInput} 💐`;
+            }
+        });
+        
+        document.getElementById('heart-btn').addEventListener('click', () => {
+            document.getElementById('initial-page').style.display = 'none';
+            document.getElementById('second-page').style.display = 'block';
+        });
+        
+        const heartIcons = document.querySelectorAll('.heart-icon');
+        heartIcons.forEach(heart => {
+            heart.addEventListener('click', () => {
+                document.getElementById('second-page').style.display = 'none';
+                document.getElementById('final-page').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
